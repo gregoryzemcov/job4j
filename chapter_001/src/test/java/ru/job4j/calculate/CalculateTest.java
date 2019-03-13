@@ -4,7 +4,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
  * Программа проверки класса Calculate
- * @autor Gregory Zemtsov (griffondark@gmail.com)
+ * @author Gregory Zemtsov (griffondark@gmail.com)
  * @version 0.1
  * @since 11.03.2019
  */

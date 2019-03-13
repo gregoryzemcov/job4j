@@ -9,7 +9,7 @@ public class Calculate {
 		System.out.println("Hello World!");
 	}
 	/**
-	 * Metod echo.
+	 * Method echo.
 	 * @param name Your name.
 	 * @return Echo plus your name.
 	 */
