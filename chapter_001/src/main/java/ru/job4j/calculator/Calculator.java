@@ -8,32 +8,32 @@ package ru.job4j.calculator;
  public class Calculator {
 	 /**
 	  * Method add - сложение двух слагаемых.
-	  * @param double first, double second.
-	  * @return double first + second.
+	  * @param double first, second.
+	  * @return result.
 	  */
 	 public double add(double first, double second) {
 		 return first + second;
 	 }
 	 /**
-	  * Method subtract - вычитания из числа first.
-	  * @param double first, double second.
-	  * @return double first - second.
+	  * Method subtract - вычитание из числа first числа second.
+	  * @param 'double first, second.
+	  * @return result.
 	  */
 	  public double subtract(double first, double second) {
 		  return first - second;
 	  }
 	  /**
-	  * Method div - деления числа first.
-	  * @param double first, double second.
-	  * @return double first / second.
+	  * Method div - деление числа first на число second.
+	  * @param 'double first, second'.
+	  * @return result.
 	  */
 	  public double div(double first, double second) {
 		  return first / second;
 	  }
 	  /**
-	  * Method multiple - умножения двух чисел.
-	  * @param double first, double second.
-	  * @return double first - second.
+	  * Method multiple - перемножение двух чисел first & second.
+	  * @param 'double first, second'.
+	  * @return result.
 	  */
 	  public double multiple(double first, double second) {
 		  return first * second;
