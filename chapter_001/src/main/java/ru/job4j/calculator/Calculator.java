@@ -8,33 +8,33 @@ package ru.job4j.calculator;
  public class Calculator {
 	 /**
 	  * Method add - сложение двух слагаемых.
-	  * @param double first, second.
 	  * @return result.
 	  */
+	 @SuppressWarnings("JavadocReference")
 	 public double add(double first, double second) {
 		 return first + second;
 	 }
 	 /**
 	  * Method subtract - вычитание из числа first числа second.
-	  * @param 'double first, second.
 	  * @return result.
 	  */
+	  @SuppressWarnings({"JavaDoc", "JavadocReference"})
 	  public double subtract(double first, double second) {
 		  return first - second;
 	  }
 	  /**
 	  * Method div - деление числа first на число second.
-	  * @param 'double first, second'.
 	  * @return result.
 	  */
+	  @SuppressWarnings({"JavaDoc", "JavadocReference"})
 	  public double div(double first, double second) {
 		  return first / second;
 	  }
 	  /**
 	  * Method multiple - перемножение двух чисел first & second.
-	  * @param 'double first, second'.
 	  * @return result.
 	  */
+	  @SuppressWarnings({"JavaDoc", "JavadocReference"})
 	  public double multiple(double first, double second) {
 		  return first * second;
 	  }

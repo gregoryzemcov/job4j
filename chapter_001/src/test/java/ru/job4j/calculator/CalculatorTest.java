@@ -11,9 +11,9 @@ import static org.junit.Assert.assertThat;
  public class CalculatorTest {
 	 /**
 	  * Тест проверки method add.
-	  * @param double first, second.
 	  * @return result.
 	  */
+	  @SuppressWarnings("JavadocReference")
 	  @Test
 	  public void whenAddOnePlusOneThenTwo() {
 		  Calculator calc = new Calculator();
@@ -23,9 +23,9 @@ import static org.junit.Assert.assertThat;
 	  }
 	  /**
 	  * Тест проверки method subtract.
-	  * @param 'double first, second'.
 	  * @return result.
 	  */
+	  @SuppressWarnings("JavadocReference")
 	  @Test
 	  public void whenSubtractTwoMinusOneThenOne() {
 		  Calculator calc = new Calculator();
@@ -35,9 +35,9 @@ import static org.junit.Assert.assertThat;
 	  }
 	  /**
 	  * Тест проверки method div.
-	  * @param 'double first, second'.
 	  * @return result.
 	  */
+	  @SuppressWarnings("JavadocReference")
 	  @Test
 	  public void whenDivFourDivTwoThenTwo() {
 		  Calculator calc = new Calculator();
@@ -47,9 +47,9 @@ import static org.junit.Assert.assertThat;
 	  }
 	  /**
 	  * Тест проверки method multiple.
-	  * @param 'double first, second'.
 	  * @return result.
 	  */
+	  @SuppressWarnings("JavadocReference")
 	  @Test
 	  public void whenMultipleTwoMultipleTwoThenFour() {
 		  Calculator calc = new Calculator();
