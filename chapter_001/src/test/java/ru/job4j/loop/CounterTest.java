@@ -15,4 +15,10 @@ public class CounterTest {
 		int summ = counter.add(0, 10);
 		assertThat(summ, is(30));
 	}
+	@Test
+	public void whenSumEvenNumbersFromOneEightThenTwenty() {
+		Counter counter = new Counter();
+		int summ = counter.add(0, 8);
+		assertThat(summ, is(20));
+	}
 }
