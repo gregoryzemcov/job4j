@@ -24,4 +24,44 @@ import java.util.function.BiPredicate;
 		}
 		return screen.toString();
 	}
+	/**
+	 * Method построения правой половины пирамиды.
+	 * @param height высота.
+	 * @return правая половина пирамиды.
+	 */
+	public String rightTrl(int height) {
+        StringBuilder screen = new StringBuilder();
+        int width = height;
+        for (int row = 0; row != height; row++) {
+            for (int column = 0; column != width; column++) {
+                if (row >= column) {
+                    screen.append("^");
+                } else {
+                    screen.append(" ");
+                }
+            }
+            screen.append(System.lineSeparator());
+        }
+        return screen.toString();
+    }
+	/**
+	 * Method построения левой половины пирамиды.
+	 * @param height высота.
+	 * @return левая половина пирамиды.
+	 */
+	public String leftTrl(int height) {
+		StringBuilder screen = new StringBuilder();
+		int width = height;
+		for (int row = 0; row != height; row++) {
+			for (int column = 0; column != width; column++) {
+				if (row >= width - column - 1) {
+					screen.append("^");
+				} else {
+					screen.append(" ");
+				}
+			}
+        screen.append(System.lineSeparator());
+		}
+    return screen.toString();
+	}
  }
