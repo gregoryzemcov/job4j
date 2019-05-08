@@ -6,13 +6,14 @@ package ru.job4j.profession;
  * @since 05.05.2019.
  */
  public class Teacher extends Profession {
-	 public String teach;
+	 public String teachStudent;
 	 public String directionInEducation;
+	 public Teacher() {}
 	 public Teacher(String name, String profession) {
 		 this.name = name;
 		 this.profession = directionInEducation;
 	 }
-	 public String teach() {
-		 return teach;
+	 public String teachStudent() {
+		 return teachStudent;
 	 }
  }
