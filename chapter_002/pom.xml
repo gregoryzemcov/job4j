@@ -11,9 +11,4 @@
 
     <artifactId>chapter_002</artifactId>
 
-    <modules>
-        <module>tracker</module>
-    </modules>
-
-
 </project>
