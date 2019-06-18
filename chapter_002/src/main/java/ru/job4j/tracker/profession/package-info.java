@@ -4,4 +4,4 @@
  * @version $Id$.
  * @since 05.05.2019.
  */
- package ru.job4j.profession;
+ package ru.job4j.tracker.profession;
