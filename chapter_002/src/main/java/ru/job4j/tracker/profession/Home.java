@@ -1,4 +1,4 @@
-package ru.job4j.profession;
+package ru.job4j.tracker.profession;
 /**
  * Класс Home, наследуемый от класса Ingineer.
  * @author Gregory Zemtsov (griffondark@gmail.com).

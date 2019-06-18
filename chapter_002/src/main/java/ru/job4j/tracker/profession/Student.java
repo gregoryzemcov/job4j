@@ -1,4 +1,4 @@
-package ru.job4j.profession;
+package ru.job4j.tracker.profession;
 /**
  * Класс Student, наследуемый от класса Teacher.
  * @author Gregory Zemtsov (griffondark@gmail.com).

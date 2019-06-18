@@ -1,4 +1,4 @@
-package ru.job4j.profession;
+package ru.job4j.tracker.profession;
 /**
  * Класс Teacher, наследуемый от класса Profession.
  * @author Gregory Zemtsov (griffondark@gmail.com).
@@ -8,7 +8,7 @@ package ru.job4j.profession;
  public class Teacher extends Profession {
 	 public String teachStudent;
 	 public String directionInEducation;
-	 public Teacher() {}
+	 public Teacher() { }
 	 public Teacher(String name, String profession) {
 		 this.name = name;
 		 this.profession = directionInEducation;

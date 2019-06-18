@@ -1,4 +1,4 @@
-package ru.job4j.profession;
+package ru.job4j.tracker.profession;
 /**
  * Класс Ingineer, наследуемый от класса Profession
  * @author Gregory Zemtsov (griffondark@gmail.com).
@@ -8,7 +8,7 @@ package ru.job4j.profession;
  public class Engineer extends Profession {
 	 public String buildHome;
 	 public String directionInConstruction;
-	 public Engineer() {}
+	 public Engineer() { }
 	 public Engineer(String name, String profession) {
 		 this.name = name;
 		 this.profession = directionInConstruction;

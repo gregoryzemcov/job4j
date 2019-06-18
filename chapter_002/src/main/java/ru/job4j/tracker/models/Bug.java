@@ -1,4 +1,4 @@
-package ru.job4j.models;
+package ru.job4j.tracker.models;
 /**
  * Шаблон класса "Ошибка", унаследован от Item.
  * @author Gregory Zemtsov (griffondark@gmail.com).
