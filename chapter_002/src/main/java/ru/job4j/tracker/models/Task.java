@@ -6,10 +6,7 @@ package ru.job4j.tracker.models;
  * @since 05.05.2019.
  */
  public class Task extends Item {
-	 public Task(String name, String desc) {
-		 this.name = name;
-		 this.desc = desc;
-	 }
+	 public Task(String name, String desc) { }
      public String calculatePrice() {
 		 return "100%";
 	 }

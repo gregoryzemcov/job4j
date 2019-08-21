@@ -11,7 +11,7 @@ import java.util.Objects;
     private String name;
     private String decs;
     private long time;
-
+    public Item() { }
     public Item(String name, String decs, long time) {
         this.name = name;
         this.decs = decs;
@@ -43,13 +43,14 @@ import java.util.Objects;
     }
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Item item = (Item) o;
-        return time == item.time &&
-                Objects.equals(id, item.id) &&
-                Objects.equals(name, item.name) &&
-                Objects.equals(decs, item.decs);
+        return time == item.time && Objects.equals(id, item.id) && Objects.equals(name, item.name) && Objects.equals(decs, item.decs);
     }
     @Override
     public int hashCode() {

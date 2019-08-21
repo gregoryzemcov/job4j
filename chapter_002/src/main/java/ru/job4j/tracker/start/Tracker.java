@@ -33,18 +33,14 @@ public class Tracker {
 	 * @return boolean.
 	 */
 	 public boolean replace(String id, Item item) {
-		Item copyItems = item;
-		boolean result = false;
-		for (Item i : items) {
-			if (i.getId().equals(id)) {
-				items.set(i);
+	     boolean result = false;
+		for (int i = 0; i < position; i++) {
+			if (this.items[i].getId().equals(id)) {
+				items[i] = item;
+				result = true;
+				break;
 			}
 		}
-		 for (Item i : items) {
-			 if(i != copyItems && i != null) {
-				 result = true;
-			 }
-		 }
 		return result;
 	 }
 	 /**
@@ -53,15 +49,11 @@ public class Tracker {
 	 */
 	 public boolean delete(String id) {
 	 	 boolean result = false;
-	 	 for(Item i : items) {
-			 if(i.getId().equals(id)) {
-				 items.remove(i);
-				 break;
-			 }
-		 }
-		 for (Item i : items) {
-			 if (!i.getId().equals(id)) {
-				 result = true;
+	 	 for (int i = 0; i < position; i++) {
+			 if (this.items[i].getId().equals(id)) {
+                 items[i] = null;
+                 result = true;
+                 break;
 			 }
 		 }
 		 return result;
@@ -71,14 +63,16 @@ public class Tracker {
 	 * @return items.
 	 */
 	 public Item[] findAll(Item item) {
-	 	 int nullElement = 0;
-		 for (Item i : items) {
-			 if(i == null) {
-				 nullElement++;
-			 }
-		 }
-		 Arrays.sort(items);
-		 System.arraycopy(this.items, 0, items, 0, items.length - nullElement);
+	     int count = 0;
+	 	 for (int i = 0; i < this.items.length - 1; i++) {
+	 	     if (this.items[i] == item) {
+	 	         Item temp = items[i];
+                 items[i] = items[i + 1];
+                 items[i + 1] = temp;
+                 count++;
+             }
+         }
+	 	 Arrays.copyOf(this.items, items.length - count);
 	 	 return this.items;
 	 }
 	 /**
@@ -86,14 +80,13 @@ public class Tracker {
 	 * @return items.
 	 */
 	 public Item[] findByName(String key) {
-	 	 Item[] copyItems = new Item[items.length];
-	 	 for (Item i : items) {
-			 if (i.getName().contains(key)) {
-			 	copyItems.add(i);
+	 	 Item[] result = new Item[items.length];
+	 	 for (int i = 0; i < this.items.length; i++) {
+			 if (this.items[i].getName().equals(key)) {
+			 	result[i] = this.items[i];
 			 }
 		 }
-		 copyItems.findAll(copyItems);
-		 return copyItems;
+		 return result;
 	 }
 	 /**
 	 * Метод получения заявки по id.
@@ -101,8 +94,8 @@ public class Tracker {
 	 */
 	 public Item findById(String id) {
 		Item result = null; 	
-		for(Item i : items) {
-			if(i.getId().equals(id)) {
+		for (Item i : items) {
+			if (i.getId().equals(id)) {
 				result = i;
 				break;
 			}

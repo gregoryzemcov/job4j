@@ -24,12 +24,13 @@ import ru.job4j.tracker.models.*;
 	 @Test
 	 public void whenDeleteItem() {
 		 Tracker tracker = new Tracker();
-		 Item item = new Item("test0", "testDescription0", 10L);
-		 tracker.add(item);
+		 Item previous = new Item("test0", "testDescription0", 10L);
+		 tracker.add(previous);
 		 Item next = new Item("test1", "testDescription1", 11L);
 		 tracker.add(next);
-		 tracker.delete(item.getId());
-		 assertThat(tracker.findAll(item), is(next));
+		 tracker.delete(previous.getId());
+		 tracker.findAll(previous);
+		 assertThat(tracker, is(next));
 	 }
 	 @Test
 	 public void whenReplaceNameThenReturnNewName() {
@@ -52,7 +53,7 @@ import ru.job4j.tracker.models.*;
 		 tracker.add(second);
 		 tracker.add(third);
 		 tracker.add(four);
-		 Item[] copyItem = tracker.findAll(items);
+		 Item[] copyItem = tracker.findAll(null);
 		 Tracker expect = new Tracker();
 		 expect.add(first);
 		 expect.add(third);
