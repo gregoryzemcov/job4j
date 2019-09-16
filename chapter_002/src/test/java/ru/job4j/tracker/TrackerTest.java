@@ -23,14 +23,21 @@ import ru.job4j.tracker.models.*;
 	 }
 	 @Test
 	 public void whenDeleteItem() {
-		 Tracker tracker = new Tracker();
-		 Item previous = new Item("test0", "testDescription0", 10L);
-		 tracker.add(previous);
-		 Item next = new Item("test1", "testDescription1", 11L);
-		 tracker.add(next);
-		 tracker.delete(previous.getId());
-		 tracker.findAll(previous);
-		 assertThat(tracker, is(next));
+		 Tracker primary = new Tracker();
+		 Item first = new Item("test0", "testDescription0", 10L);
+		 Item second = new Item("test1", "testDescription1", 11L);
+		 Item third = new Item("Test3", "testDescription3", 12L);
+		 Item four = new Item("Test4", "testDescription4", 13L);
+		 primary.add(first);
+		 primary.add(second);
+		 primary.add(third);
+		 primary.add(four);		 
+		 primary.delete(third.getId());
+		 Tracker expect = new Tracker();
+		 expect.add(first);
+		 expect.add(second);
+		 expect.add(four);
+		 assertThat(primary, is(expect));
 	 }
 	 @Test
 	 public void whenReplaceNameThenReturnNewName() {
@@ -53,27 +60,25 @@ import ru.job4j.tracker.models.*;
 		 tracker.add(second);
 		 tracker.add(third);
 		 tracker.add(four);
-		 Item[] copyItem = tracker.findAll(null);
 		 Tracker expect = new Tracker();
 		 expect.add(first);
 		 expect.add(third);
-		 assertThat(copyItem, arrayContainingInAnyOrder(expect));
+		 assertThat(tracker.findAll(), is(expect));
 	 }
 	 @Test
 	 public void whenItemFindByName() {
 		 Tracker tracker = new Tracker();
 		 Item first = new Item("testA", "decsA", 13L);
-		 tracker.add(first);
 		 Item second = new Item("B", "decsB", 14L);
-		 tracker.add(second);
-		 Item third = new Item("testC", "decsC", 15L);
+		 Item third = new Item("testB", "decsC", 15L);
+         tracker.add(first);
+         tracker.add(second);
 		 tracker.add(third);
 		 String key = "test";
-		 Item[] result = tracker.findByName(key);
 		 Tracker expect = new Tracker();
 		 expect.add(first);
 		 expect.add(third);
-		 assertThat(result, is(expect));
+		 assertThat(tracker.findByName(key), is(expect));
 	 }
 	 @Test
 	 public void whenItemFindById() {

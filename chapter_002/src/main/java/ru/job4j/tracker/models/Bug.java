@@ -6,5 +6,5 @@ package ru.job4j.tracker.models;
  * @since 05.05.2019.
  */ 
 public class Bug extends Item {
-	public Bug() { }
+	public Bug(String name) { }
 }
