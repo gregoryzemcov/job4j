@@ -49,16 +49,16 @@ public class Tracker {
 	 * @return boolean.
 	 */
 	 public boolean delete(String id) {
-	 	 boolean result;
-	 	 for (int i = 0; i < this.items.length; i++) {
+	 	 boolean result = false;
+	 	 for (int i = 0; i < this.position; i++) {
 			 if (this.items[i].getId().equals(id)) {
                  items[i] = null;
-                 break;
+				 System.arraycopy(items, i + 1, this.items, i, this.position - i);
+				 position--;
+				 result = true;
+				 break;
 			 }
-		 }
-		 Arrays.copyOf(items, this.position - 1);
-		 System.arraycopy(items, this.position + 1, this.items, this.position + 1, this.items.length);
-		 result = true;
+		 } 
 		 return result;
 	 }
 	 /**
@@ -74,16 +74,13 @@ public class Tracker {
 	 */
 	 public Item[] findByName(String key) {
 	 	 Item[] result = new Item[position];
+		 int count = 0;
 	 	 for (int i = 0; i < position; i++) {
 			if (this.items[i].getName().equals(key)) {
-				for (int j = 0; j < position; j++) {
-					result[j] = this.items[i];
-					position++;
-				}
+				result[count++] = this.items[i];
 			 }
 		 }
-		 Arrays.copyOf(result, position);
-		 return result;
+		 return Arrays.copyOf(result, count);
 	 }
 	 /**
 	 * Метод получения заявки по id.

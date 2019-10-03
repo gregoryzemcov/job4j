@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.junit.Assert.assertThat;
 import ru.job4j.tracker.start.*;
 import ru.job4j.tracker.models.*;
@@ -23,21 +22,22 @@ import ru.job4j.tracker.models.*;
 	 }
 	 @Test
 	 public void whenDeleteItem() {
-		 Tracker primary = new Tracker();
+		 Tracker tracker = new Tracker();
 		 Item first = new Item("test0", "testDescription0", 10L);
 		 Item second = new Item("test1", "testDescription1", 11L);
 		 Item third = new Item("Test3", "testDescription3", 12L);
 		 Item four = new Item("Test4", "testDescription4", 13L);
-		 primary.add(first);
-		 primary.add(second);
-		 primary.add(third);
-		 primary.add(four);		 
-		 primary.delete(third.getId());
+		 tracker.add(first);
+		 tracker.add(second);
+		 tracker.add(third);
+		 tracker.add(four);
+		 tracker.delete(third.getId());
+		 tracker.findAll();
 		 Tracker expect = new Tracker();
 		 expect.add(first);
 		 expect.add(second);
 		 expect.add(four);
-		 assertThat(primary, is(expect));
+		 assertThat(tracker, is(expect));
 	 }
 	 @Test
 	 public void whenReplaceNameThenReturnNewName() {
@@ -60,10 +60,11 @@ import ru.job4j.tracker.models.*;
 		 tracker.add(second);
 		 tracker.add(third);
 		 tracker.add(four);
+		 tracker.findAll();
 		 Tracker expect = new Tracker();
 		 expect.add(first);
 		 expect.add(third);
-		 assertThat(tracker.findAll(), is(expect));
+		 assertThat(tracker, is(expect));
 	 }
 	 @Test
 	 public void whenItemFindByName() {
@@ -75,10 +76,11 @@ import ru.job4j.tracker.models.*;
          tracker.add(second);
 		 tracker.add(third);
 		 String key = "test";
+		 tracker.findByName(key);
 		 Tracker expect = new Tracker();
 		 expect.add(first);
 		 expect.add(third);
-		 assertThat(tracker.findByName(key), is(expect));
+		 assertThat(tracker, is(expect));
 	 }
 	 @Test
 	 public void whenItemFindById() {
