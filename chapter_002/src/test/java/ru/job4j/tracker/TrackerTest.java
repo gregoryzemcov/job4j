@@ -23,21 +23,15 @@ import ru.job4j.tracker.models.*;
 	 @Test
 	 public void whenDeleteItem() {
 		 Tracker tracker = new Tracker();
-		 Item first = new Item("test0", "testDescription0", 10L);
-		 Item second = new Item("test1", "testDescription1", 11L);
-		 Item third = new Item("Test3", "testDescription3", 12L);
-		 Item four = new Item("Test4", "testDescription4", 13L);
-		 tracker.add(first);
-		 tracker.add(second);
+		 Item [] items = {
+		 		 tracker.add(new Item ("test0", "testDescription0", 10L)),
+		 		 tracker.add(new Item("test1", "testDescription1", 11L)),
+				 tracker.add(new Item("test2", "testDescription2", 12L)),
+		 };
+		 Item third = new Item("Test3", "testDescription3", 13L);
 		 tracker.add(third);
-		 tracker.add(four);
 		 tracker.delete(third.getId());
-		 tracker.findAll();
-		 Tracker expect = new Tracker();
-		 expect.add(first);
-		 expect.add(second);
-		 expect.add(four);
-		 assertThat(tracker, is(expect));
+		 assertThat(tracker.findAll(), is(items));
 	 }
 	 @Test
 	 public void whenReplaceNameThenReturnNewName() {
@@ -52,35 +46,25 @@ import ru.job4j.tracker.models.*;
 	 @Test
 	 public void whenRemoveNullElementThenArrayWithoutNullElement() {
 		 Tracker tracker = new Tracker();
-		 Item first = new Item("Test1", "testDescription1", 123L);
-		 Item second = new Item(null, null, 0L);
-		 Item third = new Item("Test3", "testDescription3", 124L);
-		 Item four = new Item(null, null, 0L);
-		 tracker.add(first);
-		 tracker.add(second);
-		 tracker.add(third);
-		 tracker.add(four);
-		 tracker.findAll();
-		 Tracker expect = new Tracker();
-		 expect.add(first);
-		 expect.add(third);
-		 assertThat(tracker, is(expect));
+		 Item [] items = {
+			 tracker.add(new Item("Test1", "testDescription1", 123L)),
+			 tracker.add(new Item(null, null, 0L)),
+			 tracker.add(new Item("Test3", "testDescription3", 124L)),
+			 tracker.add(new Item(null, null, 0L)),
+		 };
+		 assertThat(tracker.findAll(), is(items));
 	 }
 	 @Test
 	 public void whenItemFindByName() {
 		 Tracker tracker = new Tracker();
-		 Item first = new Item("testA", "decsA", 13L);
-		 Item second = new Item("B", "decsB", 14L);
-		 Item third = new Item("testB", "decsC", 15L);
-         tracker.add(first);
-         tracker.add(second);
+		 Item [] items = {
+		 tracker.add(new Item("test", "decsA", 13L)),
+		 tracker.add(new Item("test", "decsC", 15L))
+		 };
+		 Item third = new Item("B", "decsB", 14L);
 		 tracker.add(third);
 		 String key = "test";
-		 tracker.findByName(key);
-		 Tracker expect = new Tracker();
-		 expect.add(first);
-		 expect.add(third);
-		 assertThat(tracker, is(expect));
+		 assertThat(tracker.findByName(key), is(items));
 	 }
 	 @Test
 	 public void whenItemFindById() {
