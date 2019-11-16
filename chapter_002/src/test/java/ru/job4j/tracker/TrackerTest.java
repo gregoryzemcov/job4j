@@ -23,8 +23,8 @@ import ru.job4j.tracker.models.*;
 	 @Test
 	 public void whenDeleteItem() {
 		 Tracker tracker = new Tracker();
-		 Item [] items = {
-		 		 tracker.add(new Item ("test0", "testDescription0", 10L)),
+		 Item[] items = {
+		 		 tracker.add(new Item("test0", "testDescription0", 10L)),
 		 		 tracker.add(new Item("test1", "testDescription1", 11L)),
 				 tracker.add(new Item("test2", "testDescription2", 12L)),
 		 };
@@ -46,7 +46,7 @@ import ru.job4j.tracker.models.*;
 	 @Test
 	 public void whenRemoveNullElementThenArrayWithoutNullElement() {
 		 Tracker tracker = new Tracker();
-		 Item [] items = {
+		 Item[] items = {
 			 tracker.add(new Item("Test1", "testDescription1", 123L)),
 			 tracker.add(new Item(null, null, 0L)),
 			 tracker.add(new Item("Test3", "testDescription3", 124L)),
@@ -57,7 +57,7 @@ import ru.job4j.tracker.models.*;
 	 @Test
 	 public void whenItemFindByName() {
 		 Tracker tracker = new Tracker();
-		 Item [] items = {
+		 Item[] items = {
 		 tracker.add(new Item("test", "decsA", 13L)),
 		 tracker.add(new Item("test", "decsC", 15L))
 		 };

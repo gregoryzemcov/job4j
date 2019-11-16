@@ -55,7 +55,6 @@ public class StartUI {
             }
         }
     }
-
     private void showMenu() {
         System.out.println("Menu.");
         // добавить остальные пункты меню.
@@ -67,24 +66,12 @@ public class StartUI {
         s4 = "4. Find item by Id";
         s5 = "5. Find items by name";
         s6 = "6. Exit Program";
-        String [] string = {s0, s1, s2, s3, s4, s5, s6};
+        String[] string = {s0, s1, s2, s3, s4, s5, s6};
         System.out.println(string);
     }
-
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Tracker tracker = new Tracker();
         new StartUI().init(scanner, tracker);
     }
 }
-
-/*
-0. Add new Item
-1. Show all items
-2. Edit item
-3. Delete item
-4. Find item by Id
-5. Find items by name
-6. Exit Program
- */
