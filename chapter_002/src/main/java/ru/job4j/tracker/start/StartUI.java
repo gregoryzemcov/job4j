@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class StartUI {
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = false;
-        while (run) {
+        while (!run) {
             this.showMenu();
             System.out.print("Select: ");
             int select = Integer.valueOf(scanner.nextLine());
@@ -20,7 +20,9 @@ public class StartUI {
                 System.out.println("=== Create a new Item ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
+                System.out.print("Enter description: ");
                 String desc = scanner.nextLine();
+                System.out.print("Enter time: ");
                 Long time = scanner.nextLong();
                 Item item = new Item(name, desc, time);
                 tracker.add(item);
@@ -57,17 +59,16 @@ public class StartUI {
     }
     private void showMenu() {
         System.out.println("Menu.");
-        // добавить остальные пункты меню.
-        String s0, s1, s2, s3, s4, s5, s6;
-        s0 = "0. Add new Item";
-        s1 = "1. Show all items";
-        s2 = "2. Edit item";
-        s3 = "3. Delete item";
-        s4 = "4. Find item by Id";
-        s5 = "5. Find items by name";
-        s6 = "6. Exit Program";
-        String[] string = {s0, s1, s2, s3, s4, s5, s6};
-        System.out.println(string);
+        String[] menu = {"0. Add new Item",
+                "1. Show all items",
+                "2. Edit item",
+                "3. Delete item",
+                "4. Find item by Id",
+                "5. Find items by name",
+                "6. Exit Program"};
+        for (String s : menu) {
+            System.out.println(s);
+        }
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
