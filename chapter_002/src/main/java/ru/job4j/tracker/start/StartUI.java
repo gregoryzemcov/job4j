@@ -10,26 +10,24 @@ import ru.job4j.tracker.models.*;
 public class StartUI {
 	public static void createItem(Input input, Tracker tracker) {
 		System.out.println("== Create a new Item ==");
-		System.out.print("Enter name: ");
-		String name = input.askStr("");
-		System.out.print("Enter description: ");
-        String desc = input.askStr("");
-        System.out.print("Enter time: ");
-        int time = input.askInt("");
+		String name = input.askStr("Enter name: ");
+        String desc = input.askStr("Enter description: ");
+        int time = input.askInt("Enter time: ");
 		Item item = new Item(name, desc, time);
 		tracker.add(item);
 	}
 	public static void replaceItem(Input input, Tracker tracker) {
 		System.out.println("== Edit item ==");
-		System.out.print("Enter id: ");
-		String id = input.askStr("");
-		Item item = new Item();
+		String id = input.askStr("Enter id: ");
+        String name = input.askStr("Enter name: ");
+        String desc = input.askStr("Enter description: ");
+        int time = input.askInt("Enter time: ");
+		Item item = new Item(name, desc, time);
 		tracker.replace(id, item);
 	}
 	public static void deleteItem(Input input, Tracker tracker) {
 		System.out.print("== Delete item ==");
-        System.out.print("Enter id: ");
-		String id = input.askStr("");
+		String id = input.askStr("Enter id: ");
 		tracker.delete(id);
 	}
 	public static void findAllItem(Input input, Tracker tracker) {
@@ -38,23 +36,19 @@ public class StartUI {
 	}
 	public static void findById(Input input, Tracker tracker) {
 		System.out.println("== Find item by Id ==");
-		System.out.print("Enter id: ");
-		String id = input.askStr("");		
+		String id = input.askStr("Enter id: ");
 		tracker.findById(id);
 	}
 	public static void findByName(Input input, Tracker tracker) {
 		System.out.println("== Find items by name ==");
-		System.out.print("Enter name: ");
-		String name = input.askStr("");
-		Item item = new Item();
+		String name = input.askStr("Enter name: ");
 		tracker.findByName(name);
 	}
-    public void init(Input input, Tracker tracker) {
+    public void init(Input input, Tracker tracker, UserAction[] action) {
         boolean run = true;
         while (run) {
             this.showMenu();
-            System.out.print("Select: ");
-            int select = input.askInt("");
+            int select = input.askInt("Select: ");
             if (select == 0) {
             // 0. Add new Item
                 StartUI.createItem(input, tracker);
@@ -94,7 +88,8 @@ public class StartUI {
     public static void main(String[] args) {
 		Input input = new ConsoleInput();        
         Tracker tracker = new Tracker();
-        new StartUI().init(input, tracker);
+        UserAction[] action = new UserAction[100];
+        new StartUI().init(input, tracker, action);
 		StartUI.createItem(input, tracker);
     }
 }

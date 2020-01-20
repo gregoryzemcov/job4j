@@ -1,5 +1,10 @@
 package ru.job4j.tracker.start;
-
+/**
+ * Класс итерфейса Input - StubInput.
+ * @author Gregory Zemtsov (griffondark@gmail.com).
+ * @version $Id$.
+ * @since 19.12.2019.
+ */
 public class StubInput implements Input {
 	private String[] answers;
 	private int position = 0;
