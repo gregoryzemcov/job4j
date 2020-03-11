@@ -17,6 +17,9 @@ import java.util.Objects;
         this.decs = decs;
         this.time = time;
     }
+    public Item(String name) {
+	    this.name = name;
+    }
     public String getId() {
         return id;
     }
