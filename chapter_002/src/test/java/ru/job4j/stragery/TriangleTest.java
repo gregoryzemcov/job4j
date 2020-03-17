@@ -17,10 +17,9 @@ public class TriangleTest {
                 triangle.draw(),
                 is(
                         new StringJoiner(System.lineSeparator())
-                                .add("   +   ")
-                                .add("  +++  ")
-                                .add(" +++++ ")
-                                .add("+++++++")
+                                .add("  +  ")
+                                .add(" +++ ")
+                                .add("+++++")
                                 .toString()
                 )
         );

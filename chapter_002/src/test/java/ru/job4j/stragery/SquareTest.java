@@ -19,7 +19,6 @@ public class SquareTest {
                         new StringJoiner(System.lineSeparator())
                                 .add("++++++")
                                 .add("+    +")
-                                .add("+    +")
                                 .add("++++++")
                                 .toString()
                 )
