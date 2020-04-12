@@ -1,4 +1,5 @@
 package ru.job4j.tracker.start;
+import ru.job4j.tracker.models.Item;
 /**
  * Класс поиска заявки по имени через иетерфейс UserAction.
  * @author Gregory Zemtsov (griffondark@gmail.com).
@@ -14,7 +15,9 @@ public class FindByNameAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         System.out.print("Enter name: ");
         String name = input.askStr(" ");
-        tracker.findByName(name);
+        for (Item item : tracker.findByName(name)) {
+            System.out.println(String.format("%s %s", item.getId(), item.getName()));
+        }
         return true;
     }
 }

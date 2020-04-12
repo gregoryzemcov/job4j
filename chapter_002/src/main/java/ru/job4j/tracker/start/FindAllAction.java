@@ -1,4 +1,5 @@
 package ru.job4j.tracker.start;
+import ru.job4j.tracker.models.*;
 /**
  * Класс поиска всех заявок через иетерфейс UserAction.
  * @author Gregory Zemtsov (griffondark@gmail.com).
@@ -12,7 +13,9 @@ public class FindAllAction implements UserAction {
     }
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        tracker.findAll();
+        for (Item item : tracker.findAll()) {
+			System.out.println(String.format("%s %s", item.getId(), item.getName()));
+		}
         return true;
     }
 }
