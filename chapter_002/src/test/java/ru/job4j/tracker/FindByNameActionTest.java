@@ -23,7 +23,7 @@ public class FindByNameActionTest {
 		Item item = new Item("Petr");
 		tracker.add(item);
 		FindByNameAction act = new FindByNameAction();
-		act.execute(new StubInput(new String[] { "Petr" }), tracker);
+		act.execute(new StubInput(new String[] {"Petr"}), tracker);
 		String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
 			.add(item.getId() + " " + item.getName())
 			.toString();
